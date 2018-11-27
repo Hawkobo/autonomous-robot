@@ -5,21 +5,19 @@
 
 #define TRIG_PIN A2
 #define ECHO_PIN A3
-void setup()
-{
+void setup() {
   Serial.begin(115200);
   pinMode(ECHO_PIN, INPUT); //Set the connection pin output mode Echo pin
   pinMode(TRIG_PIN, OUTPUT);//Set the connection pin output mode trog pin
 }
-void loop(){
+void loop() {
   int temp = readPing();
   Serial.println(temp,DEC);
   delay(500);
-  
+
   }
 
-int readPing()
-{
+int readPing() {
   // establish variables for duration of the ping,
   // and the distance result in inches and centimeters:
   long duration, cm;
@@ -40,11 +38,9 @@ int readPing()
   return cm ;
 }
 
-long microsecondsToCentimeters(long microseconds)
-{
+long microsecondsToCentimeters(long microseconds) {
   // The speed of sound is 340 m/s or 29 microseconds per centimeter.
   // The ping travels out and back, so to find the distance of the
   // object we take half of the distance travelled.
   return microseconds / 29 / 2;
 }
-
